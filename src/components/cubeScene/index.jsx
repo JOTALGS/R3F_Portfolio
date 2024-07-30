@@ -1,6 +1,7 @@
 import { useRef, useMemo, useEffect, useState } from "react";
 import { useControls } from "leva";
 import { debounce } from "lodash";
+import yourImage from '../../assets/images/JoseGil2.jpg'; 
 
 // 3D
 import * as THREE from "three";
@@ -8,8 +9,8 @@ import { PointLightHelper } from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useHelper, Html } from "@react-three/drei";
 import CustomShaderMaterial from "three-custom-shader-material";
-import vertexShader from "./shaders/vertex.glsl";
-import fragmentShader from "./shaders/fragment.glsl";
+import vertexShader from "../../shaders/vertex.glsl";
+import fragmentShader from "../../shaders/fragment.glsl";
 import html2canvas from "html2canvas";
 
 const useDomToCanvas = (domEl) => {
@@ -39,13 +40,13 @@ const useDomToCanvas = (domEl) => {
 function Lights() {
   const pointLightRef = useRef();
 
-  useHelper(pointLightRef, PointLightHelper, 0.7, "cyan");
+  useHelper(pointLightRef, PointLightHelper, 0.7, "white");
 
   const config = useControls("Lights", {
     color: "#ffffff",
-    intensity: { value: 30, min: 0, max: 5000, step: 0.01 },
-    distance: { value: 12, min: 0, max: 100, step: 0.1 },
-    decay: { value: 1, min: 0, max: 5, step: 0.1 },
+    intensity: { value: 20, min: 0, max: 5000, step: 0.01 },
+    distance: { value: 0, min: 0, max: 100, step: 0.1 },
+    decay: { value: 1, min: 0, max: 5, step: 0 },
     position: { value: [2, 4, 6] },
   });
   return <pointLight ref={pointLightRef} {...config} />;
@@ -80,13 +81,8 @@ function Scene() {
   return (
     <>
       <Html zIndexRange={[-1, -10]} prepend fullscreen>
-        <div ref={(el) => setDomEl(el)} className="dom-element">
-          <p className="flex flex-col">
-            WHEN <br />
-            WILL <br />
-            WE <br />
-            MEET ?<br />
-          </p>
+        <div ref={(el) => setDomEl(el)} className="image-container">
+          <img src={yourImage} className="responsive-image" />
         </div>
       </Html>
       <mesh>
