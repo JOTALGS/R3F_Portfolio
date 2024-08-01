@@ -4,8 +4,13 @@ import { Leva } from "leva";
 import { Headermain } from "./components/header";
 import { Home } from "./components/home";
 import { About } from "./components/about";
+import { ContactUs } from "./components/contact";
 import AnimatedCursor  from "./hooks/AnimatedCursor";
 
+import { Loader } from "@react-three/drei";
+import { Suspense } from "react";
+import { Experience } from "./components/portfolio/Experience";
+import { UI } from "./components/portfolio/UI";
 
 function Title3D() {
   return (
@@ -59,6 +64,18 @@ function App() {
         <Headermain />
         <Home />
         <About />
+
+        <UI />
+        <Loader />
+        <Canvas shadows camera={{ position: [-3, 1, 4], fov: 45 }} style={{ width: "100vw", height: "80vh" }}>
+          <group position-y={0}>
+            <Suspense fallback={null}>
+              <Experience />
+            </Suspense>
+          </group>
+        </Canvas>
+
+        <ContactUs />
       </main>
     </>
   );

@@ -46,15 +46,8 @@ section {
     grid-template-columns: 1fr 1fr;
 }
 
-@media (max-width: 991.98px) {
-    .intro_sec {
-        grid-template-columns: 1fr; /* Stack the columns on top of each other on smaller screens */
-        height: auto !important;
-    }
-}
 
-.text_container,
-.canvas_container {
+.text_container{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,10 +58,13 @@ section {
     width: 100%;
 }
 
-.canvas_container {
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+
+@media (max-width: 991.98px) {
+    .canvas_pic_container {
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+    }
 }
 
 .intro_sec .intro {
@@ -81,6 +77,29 @@ section {
         max-width: 700px;
         padding-left: 20px;
         padding-right: 20px;
+    }
+}
+@media (max-width: 991.98px) {
+    .intro_sec {
+        grid-template-columns: 1fr; /* Stack the columns on top of each other on smaller screens */
+        height: auto !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .intro_sec .h_bg-image {
+        height: 600px;
+        min-height: 75vh;
+        margin-bottom: 30px;
+    }
+
+    .intro_sec .h_bg-image .block {
+        top: unset;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
     }
 }
 
@@ -105,6 +124,15 @@ h1 {
     font-size: 30px;
     margin-bottom: 50px;
     font-weight: 700;
+}
+
+@media (max-width: 480px) {
+    .intro {
+        height: 350px;
+    }
+    .intro_sec {
+        margin-bottom: 50px;
+    }
 }
 
 h2 {
@@ -226,22 +254,6 @@ h2 {
     justify-content: center;
 }
 
-@media (max-width: 991.98px) {
-    .intro_sec .h_bg-image {
-        height: 600px;
-        min-height: 75vh;
-        margin-bottom: 30px;
-    }
-
-    .intro_sec .h_bg-image .block {
-        top: unset;
-        bottom: 0;
-        width: 100%;
-        margin: 0;
-        left: 50%;
-        transform: translate(-50%, 50%);
-    }
-}
 
 .intro_sec .h_bg-image .block .wrap-icon {
     font-size: 40px;

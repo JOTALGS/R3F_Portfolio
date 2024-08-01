@@ -17,6 +17,15 @@
     background-color: var(--primary-color); /* Background color to ensure it's visible */
 }
 
+@media (max-width: 450px) {
+    .container_header {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
 .menu__button {
     color: var(--text-color);
 }

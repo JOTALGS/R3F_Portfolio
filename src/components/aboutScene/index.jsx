@@ -59,7 +59,7 @@ function Lights() {
   return <pointLight ref={pointLightRef} {...config} />;
 }
 
-function AboutScene() {
+function AboutScene({ title }) {
   const state = useThree();
   const { width, height } = state.viewport;
   const [domEl, setDomEl] = useState(null);
@@ -90,12 +90,8 @@ function AboutScene() {
       <Html zIndexRange={[-1, -10]} prepend fullscreen>
         <div ref={(el) => setDomEl(el)} className="dom-element">
           <Row className="mb-5 mt-3 pt-md-3">
-            <Col lg="8">
-              <h1 className="display-4 mb-4">About me</h1>
-              <hr className="t_border my-4 ml-0 text-left" />
-            </Col>
             <Col lg="5">
-              <h3 className="color_sec py-4">{dataabout.title}</h3>
+              <h3 className="about_title">{title}</h3>
             </Col>
           </Row>
         </div>
@@ -111,7 +107,7 @@ function AboutScene() {
           flatShading
           silent
         />
-        <Lights />
+        <ambientLight intensity={15.5} />
       </mesh>
     </>
   );

@@ -22,7 +22,7 @@ export const Headermain = () => {
           <HashLink  className="navbar-brand nav_ac" to="/#home">
             {logotext}
           </HashLink>
-          <button className="menu__button  nav_ac" onClick={handleToggle}>
+          <button className="menu__button  nav_ac">{/* onClick={handleToggle} */}
             {!isActive ? <VscClose /> : <VscGrabber />}
           </button>
 

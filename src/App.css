@@ -96,7 +96,7 @@
 }
 
 [data-theme="light"] {
-  --bg-color: #ffffff;
+  --bg-color: #fcfcfc;
   --primary-color: #ffffff;
   --secondary-color: #000;
   --text-color: #000;
@@ -194,4 +194,8 @@ code {
   max-width: 100%;
   height: auto;
   object-fit: cover; /* or contain */
+}
+
+.book {
+  height: 1000px;
 }

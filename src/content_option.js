@@ -2,6 +2,7 @@ import uroImage from './assets/images/imageUro.png';
 import tribuImage from './assets/images/tribu.png';
 import cs109File from './assets/static/CS109x.pdf';
 import cs50File from './assets/static/CS50.pdf';
+import hbtnFile from './assets/static/001_rotated.pdf';
 
 
 const logotext = "J|S";
@@ -22,7 +23,7 @@ const introdata = {
 };
 
 const dataabout = {
-    title: "A bit about me",
+    title: "A bit about myself",
     aboutme: "I am passionate software developmer I posess a strong eagerness to learn emerging technologies. I have a more affinity for back-end development though I always value a satisfactory user experience.",
 };
 const worktimeline = [
@@ -44,7 +45,7 @@ const worktimeline = [
         jobtitle: "Foundations of Computer Science",
         where: "Holberton School",
         date: "2024",
-        file: null,
+        file: hbtnFile,
         href: null,
     },
 ];

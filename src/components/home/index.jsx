@@ -59,7 +59,7 @@ export const Home = () => {
               </div>
             </div>
           </div>
-          <div className="canvas_container">
+          <div className="canvas_pic_container">
             <Canvas className="">
               <CubeScene />
             </Canvas>
