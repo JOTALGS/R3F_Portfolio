@@ -1,7 +1,5 @@
 .site__header {
     top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .container_header {
@@ -15,6 +13,11 @@
     align-items: center;
     padding: 10px; /* Adjust padding as needed */
     background-color: var(--primary-color); /* Background color to ensure it's visible */
+}
+
+.transparent {
+    background-color: rgba(0, 0, 0, 0); /* Transparent background */
+    border-bottom: 1px solid grey;
 }
 
 @media (max-width: 450px) {
@@ -55,6 +58,10 @@
     height: 50px;
     font-weight: bold;
     z-index: 1000;
+}
+
+.ac_transparent{
+    background: rgba(0, 0, 0, 0);
 }
 
 .nav_ac:hover {

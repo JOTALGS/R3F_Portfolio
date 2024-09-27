@@ -12,44 +12,10 @@ import { Suspense } from "react";
 import { Experience } from "./components/portfolio/Experience";
 import { UI } from "./components/portfolio/UI";
 
-function Title3D() {
-  return (
-    <div className="h-screen w-screen">
-      <Canvas
-        dpr={[1, 2]}
-        gl={{
-          antialias: true,
-          preserveDrawingBuffer: true,
-        }}
-        camera={{
-          fov: 55,
-          near: 0.1,
-          far: 200,
-        }}
-      >
-        <Scene />
-      </Canvas>
-    </div>
-  );
-}
-
 
 function App() {
   return (
-    <>
-      <Leva
-        collapsed={false}
-        flat={true}
-        hidden
-        theme={{
-          sizes: {
-            titleBarHeight: "28px",
-          },
-          fontSizes: {
-            root: "10px",
-          },
-        }}
-      />
+    <div className="App">
       <div className="cursor__dot">
         <AnimatedCursor
           innerSize={15}
@@ -64,20 +30,9 @@ function App() {
         <Headermain />
         <Home />
         <About />
-
-        <UI />
-        <Loader />
-        <Canvas shadows camera={{ position: [-3, 1, 4], fov: 45 }} style={{ width: "100vw", height: "80vh" }}>
-          <group position-y={0}>
-            <Suspense fallback={null}>
-              <Experience />
-            </Suspense>
-          </group>
-        </Canvas>
-
         <ContactUs />
       </main>
-    </>
+    </div>
   );
 }
 

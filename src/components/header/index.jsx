@@ -1,31 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./style.css";
 import { VscGrabber, VscClose } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { logotext ,socialprofils } from "../../content_option";
 import Themetoggle from "../themetoggle";
 import { HashLink } from 'react-router-hash-link';
+import { useAnimationFrame } from "framer-motion";
 
 export const Headermain = () => {
-  const [isActive, setActive] = useState("false");
+  const [isActive, setActive] = useState(false);
+  const [isTransparent, setIsTransparent] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY; // Get current scroll position
+      const windowHeight = window.innerHeight - 40; // Get the viewport height
+
+      if (scrollPosition > windowHeight) {
+        setIsTransparent(true); // When user scrolls past 100vh, set to transparent
+      } else {
+        setIsTransparent(false); // Before 100vh, keep the background solid
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll); // Clean up listener
+    };
+  }, []);
 
   const handleToggle = () => {
     setActive(!isActive);
     document.body.classList.toggle("ovhidden");
   };
+  
 
   return (
     <>
       <header className="site__header">
-        <div className="container_header">
-          <Themetoggle />
-          <HashLink  className="navbar-brand nav_ac" to="/#home">
+        <div className={`container_header ${isTransparent ? "transparent" : ""}`}>
+          <Themetoggle className={`${isTransparent ? "ac_transparent" : ""}`} />
+          <HashLink  className={`navbar-brand nav_ac ${isTransparent ? "ac_transparent" : ""}`} to="/#home">
             {logotext}
           </HashLink>
-          <button className="menu__button  nav_ac">{/* onClick={handleToggle} */}
+          <button className={`menu__button  nav_ac ${isTransparent ? "ac_transparent" : ""}`}>{/* onClick={handleToggle} */}
             {!isActive ? <VscClose /> : <VscGrabber />}
           </button>
-
         </div>
 
         <div className={`site__navigation ${!isActive ? "menu__opend" : ""}`}>
@@ -57,11 +78,6 @@ export const Headermain = () => {
           </div>
         </div>
       </header>
-      <div className="br-top"></div>
-      <div className="br-bottom"></div>
-      <div className="br-left"></div>
-      <div className="br-right"></div>
-      
     </>
   );
 };
